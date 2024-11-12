@@ -18,9 +18,10 @@ import fs from 'fs';
 
 let caches: Cache = {};
 let cachesMetadata: CacheMetadata = {};
-const expireCache: number = Number(process.env.CACHE_MAX_LIFETIME_DAYS);
+const expireCache: number = Number(process.env.CACHE_MAX_LIFETIME_DAYS || 7);
 
 export function create(id: string, path?: string | null): void {
+    log(`Creating cache ${id}...`);
     // check if cache is expired
     if (cachesMetadata[id]) {
         // if cache is expired, reset it
@@ -41,8 +42,8 @@ export function create(id: string, path?: string | null): void {
             const data = fs.readFileSync(`./cache/${id}.meta.json`, 'utf8');
             cachesMetadata[id] = JSON.parse(data);
             log(`Cache ${id} metadata loaded from disk`)
-        } catch (e) {
-            error(e as any);
+        } catch (e: any) {
+            error(e.message);
             log(`Cache ${id} metadata does not exist, creating it...`);
             const createDate = new Date().toISOString();
             // ad 1 week to the current date

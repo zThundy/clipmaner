@@ -21,10 +21,7 @@ export function existsSync(filePath: string): boolean {
 
 export function ensureDirectoryExists(directory: string): void {
     if (!existsSync(directory)) {
-        console.log(`[fileSystem] Could not find "${directory}", creating it...`);
         fs.mkdirSync(directory, { recursive: true });
-    } else {
-        console.log(`[fileSystem] "${directory}" directory found!`);
     }
 }
 

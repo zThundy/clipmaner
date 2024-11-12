@@ -19,8 +19,7 @@ import {
 import {
     verbose,
     error,
-    warn,
-    log
+    warn
 } from "@/helpers/logger";
 
 import {
@@ -97,7 +96,7 @@ export default async function handler(
             verbose(`Sending ${sorted.length} clips for ${id}, ip: ${ip}...`)
             res.status(200).json(sorted as any);
         } catch (e: any) {
-            error(`Failed to get clips for ${id}, ip: ${ip} error: ${e}`);
+            error(`Failed to get clips for ${id}, ip: ${ip} error: ${e.message}`);
             if (e.message === 'Access token expired') {
                 // The access token is expired, use the refresh token to get a new one
                 const newAccessToken = await refreshAccessToken(refresh_token);
@@ -119,7 +118,6 @@ export default async function handler(
                 res.setHeader('Set-Cookie', `refresh_token=; Path=/; HttpOnly; Expires=Thu, 01 Jan 1970 00:00:00 GMT`);
                 res.setHeader('Set-Cookie', `user_data=; Path=/; HttpOnly; Expires=Thu, 01 Jan 1970 00:00:00 GMT`);
 
-                error(`Failed to get clips for ${id}, ip: ${ip} error: ${e}`);
                 res.status(500).json({
                     type: "error",
                     redirect: true,
