@@ -12,3 +12,15 @@ If you want to contribute, please do since this is the only app that does someth
 
 ![image](https://github.com/user-attachments/assets/df99e3fd-0318-47fe-b9e1-1e850611e2c8)
 
+## Technologies
+
+I used
+- [NextJS](https://nextjs.org/)
+- [ReactJS](https://react.dev/)
+- [MUI](https://mui.com/)
+- [Youtube downloader](https://github.com/ytdl-org/youtube-dl)
+
+## Some info
+
+This is my first time trying out NextJS. I know my code is shit, and I DON'T GIVE A F.
+just having fun here....
