@@ -7,5 +7,8 @@ The code is open source, and all data collected is deleted every time the websit
 
 Only this that is stored is a cache (deleted every 7 days) so that twitch doesn't f me in the a.
 
+I **will not be** renewing the domanin name since i'm broke. This is supposed to be a "demo" of some sort.
+If you want to contribute, please do since this is the only app that does something like this (mainly filtering and downloading of clips).
+
 ![image](https://github.com/user-attachments/assets/df99e3fd-0318-47fe-b9e1-1e850611e2c8)
 
